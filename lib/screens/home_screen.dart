@@ -21,7 +21,7 @@ class _LandingPageState extends State<LandingPage> {
                 style: GoogleFonts.oswald(fontSize: 70, color: Colors.white70),
               ),
               SizedBox(
-                height: 10,
+                height: 11,
               ),
               Text(
                 'Coming Soon',
