@@ -1,32 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LandingPage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _LandingPageState createState() => _LandingPageState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
-      body: Center(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      backgroundColor: Color(0xff8ebeed),
+      body: Container(
+        child: Center(
+          child: Stack(
             children: [
-              Text(
-                'Sehej Jain',
-                style: GoogleFonts.oswald(fontSize: 70, color: Colors.white70),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Image.asset(
+                  'assets/sehej_new.png',
+                  fit: BoxFit.scaleDown,
+                ),
               ),
-              SizedBox(
-                height: 11,
-              ),
-              Text(
-                'Coming Soon',
-                style:
-                    GoogleFonts.montserrat(fontSize: 50, color: Colors.white70),
+              Container(
+                height: size.height,
+                width: size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.1,
+                          ),
+                          Text(
+                            'Hey, I\'m Sehej',
+                            style: GoogleFonts.montserratAlternates(
+                              fontSize: 70,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
