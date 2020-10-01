@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_media_buttons/social_media_buttons.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -41,6 +42,31 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 70,
                               color: Colors.black54,
                             ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.1,
+                          ),
+                          SocialMediaButton.google(
+                            url: "mailto:2018225@gmail.com",
+                            size: 25,
+                            color: Colors.black54,
+                          ),
+                          SocialMediaButton.linkedin(
+                            url: "https://www.linkedin.com/in/sehejjain/",
+                            size: 25,
+                            color: Colors.black54,
+                          ),
+                          SocialMediaButton.instagram(
+                            url:
+                                "https://www.instagram.com/sehej.on.the.offbeat/",
+                            size: 25,
+                            color: Colors.black54,
                           ),
                         ],
                       ),
