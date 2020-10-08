@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: ${{secrets.commit_secret}}
+      my_secret: ${{secrets.ACCESS_TOKEN}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -23,7 +23,6 @@ jobs:
           git config --global user.email sehejjain@outlook.com
           git config --global user.name sehejjain
           git status
-          # change this remote url for examle your remote url is https://github.com/onatcipli/flutter_web.git then the following:
           git remote add origin https://${{secrets.ACCESS_TOKEN}}@github.com/sehejjain/portfolio.git
           git checkout -b gh-pages
           git add --all

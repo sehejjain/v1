@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_media_buttons/social_media_buttons.dart';
+import 'project_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -40,6 +42,78 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.montserratAlternates(
                               fontSize: 70,
                               color: Colors.black54,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.1,
+                          ),
+                          SocialMediaButton.google(
+                            url: "mailto:2018225@gmail.com",
+                            size: 25,
+                            color: Colors.black54,
+                          ),
+                          SocialMediaButton.linkedin(
+                            url: "https://www.linkedin.com/in/sehejjain/",
+                            size: 25,
+                            color: Colors.black54,
+                          ),
+                          SocialMediaButton.instagram(
+                            url:
+                                "https://www.instagram.com/sehej.on.the.offbeat/",
+                            size: 25,
+                            color: Colors.black54,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.05,
+                    ),
+                    Center(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.1,
+                          ),
+                          SizedBox(
+                            width: size.width * 0.1,
+                            height: size.height * 0.01,
+                            child: Container(
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Center(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: size.width * 0.1,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ProjectScreen(),
+                                    ));
+                              });
+                            },
+                            hoverColor: Colors.transparent,
+                            child: Text(
+                              'Projects',
+                              style: GoogleFonts.montserratAlternates(
+                                fontSize: 35,
+                                color: Colors.black54,
+                              ),
                             ),
                           ),
                         ],
