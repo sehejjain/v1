@@ -23,7 +23,7 @@ jobs:
           git config --global user.email sehejjain@outlook.com
           git config --global user.name sehejjain
           git status
-          git remote add origin https://${{secrets.ACCESS_TOKEN}}@https://github.com/sehejjain/sehejjain.github.io.git
+          git remote add origin https://${{secrets.ACCESS_TOKEN}}@github.com/sehejjain/sehejjain.github.io.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
