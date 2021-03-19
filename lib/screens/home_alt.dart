@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      "images/sehej.png",
+                      "assets/images/sehej.png",
                     ),
                   ],
                 ),
