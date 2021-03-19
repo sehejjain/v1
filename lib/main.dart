@@ -1,6 +1,8 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/responsive_widget.dart';
-import 'package:portfolio/screens/home_screen.dart';
+import 'package:portfolio/screens/home_alt.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sehej Jain',
+      title: "Sehej Jain",
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
