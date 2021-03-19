@@ -5,7 +5,9 @@ import 'package:portfolio/models/icon_data.dart';
 
 @JsonSerializable()
 class Data {
-  String name;
-  String description;
-  List<SocialMediaIconData> icons;
+  final String name;
+  final String description;
+  final List<SocialMediaIconData> icons;
+
+  Data(this.name, this.description, this.icons);
 }
