@@ -20,9 +20,9 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "assets/images/sehej.png",
-                    ),
+                    Image(
+                      image: AssetImage("images/sehej.png"),
+                    )
                   ],
                 ),
               ),
