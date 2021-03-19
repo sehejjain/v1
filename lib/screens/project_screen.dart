@@ -18,13 +18,25 @@ class ProjectScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Projects',
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                    ),
+                  ),
+                  Text(
+                    'Projects',
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 width: size.width * 0.05,
@@ -119,10 +131,10 @@ class ProjectScreen extends StatelessWidget {
 
 class ProjectBlock extends StatelessWidget {
   const ProjectBlock({
-    Key key,
-    @required this.size,
-    @required this.desc,
-    @required this.heading,
+    Key? key,
+    required this.size,
+    required this.desc,
+    required this.heading,
   }) : super(key: key);
 
   final Size size;
