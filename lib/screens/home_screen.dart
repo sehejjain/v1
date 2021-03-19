@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/components/social_media_icon.dart';
 import 'package:portfolio/models/icon_data.dart';
-import 'package:social_media_buttons/social_media_buttons.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'project_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,6 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
                   Row(
                     children: [
                       SizedBox(
@@ -56,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: size.width * 0.5,
                         child: Text(
                           "I am a 20-year-old Computer Science Undergrad from New Delhi."
-                          "\nThe focus of my projects varies from building software solutions to building things for the internet, but what I prize myself for is the ability to learn new things and build upon them in my problem-solving process.",
+                          "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them.",
                           style: GoogleFonts.montserrat(fontSize: 20),
                         ),
                       ),
@@ -148,31 +150,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class SocialMediaIcon extends StatelessWidget {
-  final SocialMediaIconData iconData;
-  const SocialMediaIcon({
-    Key key,
-    this.iconData,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 6.0, right: 6.0),
-      child: InkWell(
-        child: Icon(
-          iconData.icon,
-          size: 25,
-          color: Colors.black54,
-        ),
-        onTap: () {
-          launch(iconData.link);
-        },
       ),
     );
   }

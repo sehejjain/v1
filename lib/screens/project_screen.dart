@@ -131,10 +131,10 @@ class ProjectScreen extends StatelessWidget {
 
 class ProjectBlock extends StatelessWidget {
   const ProjectBlock({
-    Key key,
-    @required this.size,
-    @required this.desc,
-    @required this.heading,
+    Key? key,
+    required this.size,
+    required this.desc,
+    required this.heading,
   }) : super(key: key);
 
   final Size size;
