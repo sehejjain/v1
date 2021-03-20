@@ -142,16 +142,17 @@ class ProjectScreen extends StatelessWidget {
                     ),
                     ProjectText(
                       name: "IIITDMJ Companion",
-                      title: "Coming Soon",
-                      subtitle: "A Companion for IIITDMJ Students.",
+                      title: "A Companion for IIITDMJ Students",
+                      subtitle: "Team Members: Manish Pandey and Vishnu R",
                       //Helps newcomers to get acquainted and acclimatized to the College, and helps other students in keeping a track of their  of their life at college.
-                      heading: Text(
-                        "Team Members: Manish Pandey and Vishnu R",
-                        style: GoogleFonts.montserrat(
-                          fontSize: size.height * 0.018,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+                      heading: Container(),
+                      //  Text(
+                      //   "Team Members: Manish Pandey and Vishnu R",
+                      //   style: GoogleFonts.montserrat(
+                      //     fontSize: size.height * 0.018,
+                      //   ),
+                      //   textAlign: TextAlign.center,
+                      // ),
                       redirectLink: false,
                       redirectPage: true,
                       size: size,
