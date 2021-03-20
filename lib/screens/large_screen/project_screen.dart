@@ -36,7 +36,7 @@ class ProjectScreen extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: size.height * 0.65,
+                  height: size.height * 0.43,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -50,7 +50,9 @@ class ProjectScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                Spacer(),
+                SizedBox(
+                  height: size.height * 0.08,
+                ),
                 Row(
                   children: [
                     Spacer(
@@ -63,13 +65,14 @@ class ProjectScreen extends StatelessWidget {
                           "Bay Area Global Health Innovation Challenge, Top 16 Finalist",
                       heading: Text(
                         "Team Members: Ayushi Gupta, Sumedh Supe and Swati Ramtilak",
+                        style: GoogleFonts.montserrat(
+                            fontSize: size.height * 0.018),
                         textAlign: TextAlign.center,
                       ),
                       globalRedirect:
                           "http://www.bayareaglobalhealthchallenge.com/2021-finalists",
                       redirectLink: false,
                       redirectPage: true,
-                      route: ComingSoon.route,
                       size: size,
                     ),
                     Spacer(
@@ -79,11 +82,15 @@ class ProjectScreen extends StatelessWidget {
                       name: "Genome Sequencing",
                       title: "Research Project",
                       subtitle:
-                          "Applying Nature Inspired Algorithms to solve the permutation-optimization problem of assembling a genome from subsequences.",
-                      heading: Text("Paper under Review"),
+                          "Applying Nature Inspired Algorithms to assemble a genome from subsequences.",
+                      heading: Text(
+                        "Paper under Review",
+                        style: GoogleFonts.montserrat(
+                          fontSize: size.height * 0.018,
+                        ),
+                      ),
                       redirectLink: false,
                       redirectPage: true,
-                      route: ComingSoon.route,
                       size: size,
                     ),
                     Spacer(
@@ -98,33 +105,98 @@ class ProjectScreen extends StatelessWidget {
                       flex: 1,
                     ),
                     ProjectText(
-                      name: "Sirhaana",
-                      title: "Empowering the Urban Poor",
-                      subtitle: "Bay Area Global Health Innovation Challenge",
-                      heading: Text("Top 16 Finalist"),
-                      globalRedirect:
-                          "http://www.bayareaglobalhealthchallenge.com/2021-finalists",
-                      redirectLink: true,
-                      redirectPage: false,
+                      name: "Brain Stroke",
+                      title: "Coming Soon",
+                      subtitle: "",
+                      heading: Text(
+                        "",
+                        style: GoogleFonts.montserrat(
+                          fontSize: size.height * 0.018,
+                        ),
+                      ),
+                      redirectLink: false,
+                      redirectPage: true,
                       size: size,
                     ),
                     Spacer(
-                      flex: 4,
+                      flex: 1,
                     ),
                     ProjectText(
-                      name: "Flipr Hackathon 6.0",
-                      title: "A+ Grade for Mobile Development",
+                      name: "Ranking Youtube Videos",
+                      title: "Sentiment Analysis Web App",
                       subtitle:
-                          "Developed a COVID mapper app according to the given guidelines within a specified Time Limit.",
+                          "Used NLP to rank YouTube videos using weighted ranking of their comments.",
+                      redirectLink: true,
+                      redirectPage: false,
+                      size: size,
                       heading: Icon(
                         FontAwesomeIcons.github,
                         color: Colors.black54,
                         size: size.height * 0.03,
                       ),
-                      link: "https://github.com/Fuzzy-Spork/Quester",
+                      link:
+                          "https://github.com/sehejjain/Ranking-Youtube-Videos",
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    ProjectText(
+                      name: "IIITDMJ Companion",
+                      title: "Coming Soon",
+                      subtitle: "A Companion for IIITDMJ Students.",
+                      //Helps newcomers to get acquainted and acclimatized to the College, and helps other students in keeping a track of their  of their life at college.
+                      heading: Text(
+                        "Team Members: Manish Pandey and Vishnu R",
+                        style: GoogleFonts.montserrat(
+                          fontSize: size.height * 0.018,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      redirectLink: false,
+                      redirectPage: true,
+                      size: size,
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    ProjectText(
+                      name: "Sanjeevani",
+                      title: "A+ Grade in Flipr Hackathon 6.0",
+                      subtitle:
+                          "Developed a COVID mapper app according to the given guidelines within a specified Time Limit.",
+                      heading: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              launch(
+                                  "https://github.com/Fuzzy-Spork/Sanjivani");
+                            },
+                            child: Icon(
+                              FontAwesomeIcons.github,
+                              color: Colors.black54,
+                              size: size.height * 0.03,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              launch(
+                                  "https://www.linkedin.com/feed/update/urn:li:activity:6714366472652656640/");
+                            },
+                            child: Icon(
+                              FontAwesomeIcons.linkedin,
+                              color: Colors.black54,
+                              size: size.height * 0.03,
+                            ),
+                          ),
+                        ],
+                      ),
                       size: size,
                       redirectLink: false,
-                      redirectPage: false,
+                      redirectPage: true,
                     ),
                     Spacer(
                       flex: 1,
@@ -138,29 +210,39 @@ class ProjectScreen extends StatelessWidget {
                       flex: 1,
                     ),
                     ProjectText(
-                      name: "Sirhaana",
-                      title: "Empowering the Urban Poor",
-                      subtitle: "Bay Area Global Health Innovation Challenge",
-                      heading: Text("Top 16 Finalist"),
-                      globalRedirect:
-                          "http://www.bayareaglobalhealthchallenge.com/2021-finalists",
-                      redirectLink: true,
-                      redirectPage: false,
+                      name: "This is Us",
+                      title: "Matching You to Your Cause",
+                      subtitle:
+                          "Developed an app to connects Volunteers and Organisations",
+                      heading: Icon(
+                        FontAwesomeIcons.github,
+                        color: Colors.black54,
+                        size: size.height * 0.03,
+                      ),
+                      link: "https://github.com/sehejjain/this-is-us-Flutter",
+                      globalRedirect: "",
+                      redirectLink: false,
+                      redirectPage: true,
                       size: size,
                     ),
                     Spacer(
                       flex: 9,
                     ),
                     ProjectText(
-                      name: "Sirhaana",
-                      title: "Empowering the Urban Poor",
-                      subtitle: "Bay Area Global Health Innovation Challenge",
-                      heading: Text("Top 16 Finalist"),
-                      globalRedirect:
-                          "http://www.bayareaglobalhealthchallenge.com/2021-finalists",
+                      name: "Ranking Youtube Videos",
+                      title: "Sentiment Analysis Web App",
+                      subtitle:
+                          "We developed an app that used a Natural Language Processing Model to rank YouTube videos of different categories using weighted ranking of their comments.",
                       redirectLink: true,
                       redirectPage: false,
                       size: size,
+                      heading: Icon(
+                        FontAwesomeIcons.github,
+                        color: Colors.black54,
+                        size: size.height * 0.03,
+                      ),
+                      link:
+                          "https://github.com/sehejjain/Ranking-Youtube-Videos",
                     ),
                     Spacer(
                       flex: 1,
@@ -189,7 +271,7 @@ class ProjectText extends StatelessWidget {
     this.globalRedirect = "",
     required this.redirectLink,
     required this.redirectPage,
-    this.route,
+    this.route = ComingSoon.route,
   }) : super(key: key);
 
   final Size size;
@@ -217,7 +299,7 @@ class ProjectText extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          width: size.width * 0.25,
+          width: size.width * 0.22,
           child: Column(
             children: [
               Text(
@@ -236,19 +318,13 @@ class ProjectText extends StatelessWidget {
               ),
               Text(
                 this.subtitle,
+                style: GoogleFonts.montserrat(fontSize: size.height * 0.02),
                 textAlign: TextAlign.center,
               ),
-              link == ""
-                  ? this.heading
-                  : InkWell(
-                      onTap: () {
-                        launch(link!);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: this.heading,
-                      ),
-                    ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: this.heading,
+              ),
             ],
           ),
         ),
