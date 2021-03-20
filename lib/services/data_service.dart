@@ -1,8 +1,6 @@
 import 'dart:convert';
 
-import 'package:portfolio/models/data.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:provider/provider.dart';
 
 class DataService {
   var jsonString;
