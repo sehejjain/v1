@@ -15,10 +15,13 @@ class SocialMediaIcon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, bottom: 25),
       child: InkWell(
-        child: Icon(
-          iconData!.icon,
-          size: size.height * 0.06,
-          color: Colors.black54,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(
+            iconData!.icon,
+            size: size.height * 0.06,
+            color: Colors.black54,
+          ),
         ),
         onTap: () {
           launch(iconData!.link!);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ComingSoon extends StatefulWidget {
+  static const String route = '/comingsoon';
   @override
   _ComingSoonState createState() => _ComingSoonState();
 }
@@ -10,6 +11,10 @@ class _ComingSoonState extends State<ComingSoon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.blueGrey,
+      ),
       backgroundColor: Colors.blueGrey,
       body: Center(
         child: Container(
