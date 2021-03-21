@@ -1,256 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/screens/large_screen/coming_soon.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ProjectScreen extends StatelessWidget {
-  static const String route = '/projects';
+class ProjectScreen extends StatefulWidget {
+  static const String route = "/projects";
+
+  @override
+  _ProjectScreenState createState() => _ProjectScreenState();
+}
+
+class _ProjectScreenState extends State<ProjectScreen> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.blueGrey.shade900),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
+    return Scaffold(
+      backgroundColor: Color(0xff222222),
+      appBar: AppBar(
+        backgroundColor: Color(0xff222222),
+        elevation: 0,
+        title: Text(
+          "projects",
+          style: GoogleFonts.oswald(
+            fontSize: size.height * 0.05,
+            color: Colors.orangeAccent,
+          ),
         ),
-        backgroundColor: Color(0xff8ebeed),
-        body: Stack(
+      ),
+      body: SafeArea(
+        child: Row(
           children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Text(
-                'Projects and Acomplishments',
-                style: GoogleFonts.montserrat(
-                  color: Colors.black54,
-                  fontSize: size.height * 0.045,
-                  fontWeight: FontWeight.w500,
-                ),
+            NavigationRail(
+              backgroundColor: Colors.transparent,
+              selectedIndex: _selectedIndex,
+              onDestinationSelected: (int index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              unselectedIconTheme: IconThemeData(color: Colors.white60),
+              selectedLabelTextStyle: GoogleFonts.oswald(
+                color: Colors.orangeAccent,
+                fontSize: 14,
+                letterSpacing: 1,
+                decorationThickness: 2.0,
               ),
-            ),
-            Hero(
-              tag: "Image",
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: size.height * 0.43,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(
-                        image: AssetImage("images/sehej.png"),
+              unselectedLabelTextStyle: GoogleFonts.oswald(
+                fontSize: 13,
+                letterSpacing: 0.8,
+                color: Colors.white60,
+              ),
+              labelType: NavigationRailLabelType.all,
+              destinations: [
+                NavigationRailDestination(
+                  icon: SizedBox.shrink(),
+                  label: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: RotatedBox(
+                      quarterTurns: -1,
+                      child: Text(
+                        "First",
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                NavigationRailDestination(
+                  icon: SizedBox.shrink(),
+                  label: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: RotatedBox(
+                      quarterTurns: -1,
+                      child: Text(
+                        "First",
+                      ),
+                    ),
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: SizedBox.shrink(),
+                  label: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: RotatedBox(
+                      quarterTurns: -1,
+                      child: Text(
+                        "First",
+                      ),
+                    ),
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: SizedBox.shrink(),
+                  label: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: RotatedBox(
+                      quarterTurns: -1,
+                      child: Text(
+                        "First",
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+            VerticalDivider(thickness: 1, width: 1),
             Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
                   height: size.height * 0.08,
                 ),
-                Row(
-                  children: [
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "Sirhaana",
-                      title: "Empowering the Urban Poor",
-                      subtitle:
-                          "Bay Area Global Health Innovation Challenge, Top 16 Finalist",
-                      heading: Text(
-                        "Team Members: Ayushi Gupta, Sumedh Supe and Swati Ramtilak",
-                        style: GoogleFonts.montserrat(
-                            fontSize: size.height * 0.018),
-                        textAlign: TextAlign.center,
-                      ),
-                      globalRedirect:
-                          "http://www.bayareaglobalhealthchallenge.com/2021-finalists",
-                      redirectLink: false,
-                      redirectPage: true,
-                      size: size,
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "Genome Sequencing",
-                      title: "Research Project",
-                      subtitle:
-                          "Applying Nature Inspired Algorithms to assemble a genome from subsequences.",
-                      heading: Text(
-                        "Paper under Review",
-                        style: GoogleFonts.montserrat(
-                          fontSize: size.height * 0.018,
-                        ),
-                      ),
-                      redirectLink: false,
-                      redirectPage: true,
-                      size: size,
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Row(
-                  children: [
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "Brain Stroke",
-                      title: "Coming Soon",
-                      subtitle: "",
-                      heading: Text(
-                        "",
-                        style: GoogleFonts.montserrat(
-                          fontSize: size.height * 0.018,
-                        ),
-                      ),
-                      redirectLink: false,
-                      redirectPage: true,
-                      size: size,
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "Ranking Youtube Videos",
-                      title: "Sentiment Analysis Web App",
-                      subtitle:
-                          "Used NLP to rank YouTube videos using weighted ranking of their comments.",
-                      redirectLink: true,
-                      redirectPage: false,
-                      size: size,
-                      heading: Icon(
-                        FontAwesomeIcons.github,
-                        color: Colors.black54,
-                        size: size.height * 0.03,
-                      ),
-                      link:
-                          "https://github.com/sehejjain/Ranking-Youtube-Videos",
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "IIITDMJ Companion",
-                      title: "A Companion for IIITDMJ Students",
-                      subtitle: "Team Members: Manish Pandey and Vishnu R",
-                      //Helps newcomers to get acquainted and acclimatized to the College, and helps other students in keeping a track of their  of their life at college.
-                      heading: Container(),
-                      //  Text(
-                      //   "Team Members: Manish Pandey and Vishnu R",
-                      //   style: GoogleFonts.montserrat(
-                      //     fontSize: size.height * 0.018,
-                      //   ),
-                      //   textAlign: TextAlign.center,
-                      // ),
-                      redirectLink: false,
-                      redirectPage: true,
-                      size: size,
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "Sanjeevani",
-                      title: "A+ Grade in Flipr Hackathon 6.0",
-                      subtitle:
-                          "Developed a COVID mapper app according to the given guidelines within a specified Time Limit.",
-                      heading: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              launch(
-                                  "https://github.com/Fuzzy-Spork/Sanjivani");
-                            },
-                            child: Icon(
-                              FontAwesomeIcons.github,
-                              color: Colors.black54,
-                              size: size.height * 0.03,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              launch(
-                                  "https://www.linkedin.com/feed/update/urn:li:activity:6714366472652656640/");
-                            },
-                            child: Icon(
-                              FontAwesomeIcons.linkedin,
-                              color: Colors.black54,
-                              size: size.height * 0.03,
-                            ),
-                          ),
-                        ],
-                      ),
-                      size: size,
-                      redirectLink: false,
-                      redirectPage: true,
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Row(
-                  children: [
-                    Spacer(
-                      flex: 1,
-                    ),
-                    ProjectText(
-                      name: "This is Us",
-                      title: "Matching You to Your Cause",
-                      subtitle:
-                          "Developed an app to connects Volunteers and Organisations",
-                      heading: Icon(
-                        FontAwesomeIcons.github,
-                        color: Colors.black54,
-                        size: size.height * 0.03,
-                      ),
-                      link: "https://github.com/sehejjain/this-is-us-Flutter",
-                      globalRedirect: "",
-                      redirectLink: false,
-                      redirectPage: true,
-                      size: size,
-                    ),
-                    Spacer(
-                      flex: 9,
-                    ),
-                    ProjectText(
-                      name: "Ranking Youtube Videos",
-                      title: "Sentiment Analysis Web App",
-                      subtitle:
-                          "We developed an app that used a Natural Language Processing Model to rank YouTube videos of different categories using weighted ranking of their comments.",
-                      redirectLink: true,
-                      redirectPage: false,
-                      size: size,
-                      heading: Icon(
-                        FontAwesomeIcons.github,
-                        color: Colors.black54,
-                        size: size.height * 0.03,
-                      ),
-                      link:
-                          "https://github.com/sehejjain/Ranking-Youtube-Videos",
-                    ),
-                    Spacer(
-                      flex: 1,
-                    ),
-                  ],
-                ),
-                Spacer(),
+                Container(),
               ],
             ),
           ],
@@ -260,72 +120,78 @@ class ProjectScreen extends StatelessWidget {
   }
 }
 
-class ProjectText extends StatelessWidget {
-  ProjectText({
-    Key? key,
-    required this.size,
-    required this.heading,
-    required this.name,
-    required this.subtitle,
-    required this.title,
-    this.link = "",
-    this.globalRedirect = "",
-    required this.redirectLink,
-    required this.redirectPage,
-    this.route = ComingSoon.route,
-  }) : super(key: key);
-
+class ProjectCard extends StatefulWidget {
   final Size size;
-  final String name;
-  final String title;
-  final String subtitle;
-  final Widget heading;
-  final String? link;
-  final String? globalRedirect;
-  final bool redirectLink;
-  final bool redirectPage;
-  final String? route;
+
+  const ProjectCard({Key? key, required this.size}) : super(key: key);
+
+  @override
+  _ProjectCardState createState() => _ProjectCardState();
+}
+
+class _ProjectCardState extends State<ProjectCard> {
+  Text getHeadingText(String heading) {
+    return Text(
+      heading,
+      style: GoogleFonts.montserrat(
+        fontSize: widget.size.height * 0.045,
+        color: Colors.white60,
+        fontWeight: FontWeight.w400,
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (this.redirectLink) {
-          launch(this.globalRedirect!);
-        }
-        if (this.redirectPage) {
-          Navigator.of(context).pushNamed(route!);
-        }
+        Navigator.pushNamed(context, ComingSoon.route);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
-          width: size.width * 0.22,
+        child: Card(
+          elevation: 0,
+          color: Colors.transparent,
           child: Column(
             children: [
+              getHeadingText("Sirhaana"),
               Text(
-                name,
-                style: GoogleFonts.montserrat(fontSize: size.height * 0.03),
-              ),
-              Text(
-                this.title,
+                "Empowering the Urban Poor",
                 style: GoogleFonts.montserrat(
-                  fontSize: size.height * 0.02,
+                  fontSize: widget.size.height * 0.025,
+                  color: Colors.white54,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: size.height * 0.01,
-              ),
-              Text(
-                this.subtitle,
-                style: GoogleFonts.montserrat(fontSize: size.height * 0.02),
                 textAlign: TextAlign.center,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: this.heading,
+                child: Text(
+                  "Bay Area Global Health Innovation Challenge, Top 16 Finalist",
+                  style: GoogleFonts.montserrat(
+                    fontSize: widget.size.height * 0.02,
+                    color: Colors.white54,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
+              Text(
+                "Team Members: Ayushi Gupta, Sumedh Supe and Swati Ramtilak",
+                style: GoogleFonts.montserrat(
+                  fontSize: widget.size.height * 0.02,
+                  color: Colors.white54,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                "We envision a service that will serve the urban poor, address their issue of handling emergencies and guide them through. We want to bridge the gap between the present-day healthcare systems and the urban poor, who mostly prefer their home remedies or are unaware of the schemes they are eligible for. We want to be a service that can have an impact and help people so that they are not turned away or taken advantage of because of their circumstances. \n"
+                "\"Trust our vision for us to return it back with our service.\"",
+                style: GoogleFonts.montserrat(
+                  fontSize: widget.size.height * 0.018,
+                  color: Colors.white54,
+                ),
+                textAlign: TextAlign.center,
+              )
             ],
           ),
         ),
@@ -334,73 +200,10 @@ class ProjectText extends StatelessWidget {
   }
 }
 
-// class ProjectBlock extends StatelessWidget {
-//   const ProjectBlock({
-//     Key? key,
-//     required this.size,
-//     required this.desc,
-//     required this.heading,
-//   }) : super(key: key);
-
-//   final Size size;
-//   final String heading;
-//   final String desc;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: size.height * 0.3,
-//       width: size.height * 0.3,
-//       child: Row(
-//         children: [
-//           SizedBox(
-//             height: size.height * 0.3,
-//             width: 8,
-//             child: Container(
-//               color: Colors.black54,
-//             ),
-//           ),
-//           SizedBox(
-//             width: 5,
-//           ),
-//           Column(
-//             mainAxisAlignment: MainAxisAlignment.start,
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Text(
-//                 heading,
-//                 style: TextStyle(
-//                   color: Colors.black54,
-//                   fontSize: 23,
-//                   fontWeight: FontWeight.w900,
-//                 ),
-//               ),
-//               FittedBox(
-//                 child: Container(
-//                   height: size.height * 0.2,
-//                   width: size.height * 0.25,
-//                   child: Text(
-//                     desc,
-//                     style: TextStyle(
-//                         color: Colors.black54,
-//                         fontSize: 16,
-//                         fontWeight: FontWeight.bold),
-//                   ),
-//                 ),
-//               ),
-//               Row(
-//                 children: [
-//                   Icon(
-//                     Icons.open_in_new,
-//                     size: 30,
-//                     color: Colors.black54,
-//                   )
-//                 ],
-//               )
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+Map<String, dynamic> projects = {
+  "Sirhaana": {
+    "title": "Empowering the Urban Poor",
+    "subtitle": "Bay Area Global Health Innovation Challenge, Top 16 Finalists",
+    "team": "Ayushi Gupta, Sehej Jain, Swati Ramtilak and Sumedh Supe",
+  }
+};
