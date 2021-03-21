@@ -13,14 +13,14 @@ class SocialMediaIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0, bottom: 25),
+      padding: const EdgeInsets.only(left: 10.0, bottom: 5),
       child: InkWell(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Icon(
             iconData!.icon,
-            size: size.height * 0.06,
-            color: Colors.black54,
+            size: size.height * 0.03,
+            color: Colors.white54,
           ),
         ),
         onTap: () {

@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/components/social_media_icon.dart';
 import 'package:portfolio/models/icon_data.dart';
+
 import 'package:portfolio/screens/large_screen/project_screen.dart';
 
 import 'coming_soon.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xff8ebeed),
+      backgroundColor: Color(0xff222222),
       body: SafeArea(
         child: Stack(
           children: [
@@ -23,21 +24,50 @@ class HomeScreen extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Container(
                   height: size.height * 0.6,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(
-                        image: AssetImage("images/sehej.png"),
-                      )
-                    ],
+                  child: FractionalTranslation(
+                    translation: Offset(0.007, 0),
+                    child: Image(
+                      image: AssetImage("images/sehej.png"),
+                    ),
                   ),
                 ),
               ),
             ),
             Align(
+              alignment: Alignment.bottomLeft,
+              child: Row(
+                children: [
+                  SocialMediaIcon(
+                    iconData: SocialMediaIconData(
+                      icon: Icons.mail,
+                      link: "mailto:2018225@iiitdmj.ac.in",
+                    ),
+                  ),
+                  SocialMediaIcon(
+                    iconData: SocialMediaIconData(
+                      icon: FontAwesomeIcons.linkedin,
+                      link: "https://www.linkedin.com/in/sehejjain/",
+                    ),
+                  ),
+                  SocialMediaIcon(
+                    iconData: SocialMediaIconData(
+                      icon: FontAwesomeIcons.github,
+                      link: "https://github.com/sehejjain",
+                    ),
+                  ),
+                  SocialMediaIcon(
+                    iconData: SocialMediaIconData(
+                      icon: FontAwesomeIcons.instagram,
+                      link: "https://www.instagram.com/sehej.on.the.offbeat/",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Align(
               alignment: Alignment.topCenter,
               child: Container(
-                width: size.width * 0.6,
+                width: size.width * 0.7,
                 child: Column(
                   children: [
                     SizedBox(
@@ -47,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                       'Hey, I\'m Sehej',
                       style: GoogleFonts.oswald(
                         fontSize: size.height * 0.08,
-                        color: Colors.black54,
+                        color: Colors.orangeAccent,
                       ),
                     ),
                     SizedBox(
@@ -57,8 +87,8 @@ class HomeScreen extends StatelessWidget {
                       "I am a 20-year-old Computer Science Undergrad from New Delhi."
                       "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them."
                       "\nMy aspirations in my life are centred around empowering people, and striving for inclusive and dynamic answers to the world’s problems.",
-                      style:
-                          GoogleFonts.montserrat(fontSize: size.height * 0.025),
+                      style: GoogleFonts.montserrat(
+                          fontSize: size.height * 0.025, color: Colors.white54),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -72,8 +102,8 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: size.height * 0.45),
                   Row(
                     children: [
-                      SizedBox(
-                        width: size.width * 0.17,
+                      Spacer(
+                        flex: 2,
                       ),
                       InkWell(
                         onTap: () {
@@ -82,15 +112,17 @@ class HomeScreen extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "Publications",
+                            "About",
                             style: GoogleFonts.montserrat(
-                              fontSize: 37,
-                              color: Colors.black54,
+                              fontSize: size.height * 0.05,
+                              color: Colors.orangeAccent,
                             ),
                           ),
                         ),
                       ),
-                      Spacer(),
+                      Spacer(
+                        flex: 4,
+                      ),
                       InkWell(
                         onTap: () {
                           Navigator.of(context).pushNamed(ProjectScreen.route);
@@ -100,16 +132,16 @@ class HomeScreen extends StatelessWidget {
                           child: Text(
                             "Projects",
                             style: GoogleFonts.montserrat(
-                              fontSize: 37,
-                              color: Colors.black54,
+                              fontSize: size.height * 0.05,
+                              color: Colors.orangeAccent,
                             ),
                             textAlign: TextAlign.center,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: size.width * 0.17,
-                      ),
+                      Spacer(
+                        flex: 2,
+                      )
                     ],
                   ),
                   SizedBox(
@@ -117,51 +149,46 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      SizedBox(
-                        width: size.width * 0.14,
+                      Spacer(
+                        flex: 1,
                       ),
-                      SocialMediaIcon(
-                        iconData: SocialMediaIconData(
-                          icon: Icons.mail,
-                          link: "mailto:2018225@iiitdmj.ac.in",
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(ComingSoon.route);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Experience",
+                            style: GoogleFonts.montserrat(
+                              fontSize: size.height * 0.05,
+                              color: Colors.orangeAccent,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
-                      Spacer(),
-                      SocialMediaIcon(
-                        iconData: SocialMediaIconData(
-                          icon: FontAwesomeIcons.github,
-                          link: "https://github.com/sehejjain",
+                      Spacer(
+                        flex: 5,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(ProjectScreen.route);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Publications",
+                            style: GoogleFonts.montserrat(
+                              fontSize: size.height * 0.05,
+                              color: Colors.orangeAccent,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
-                      SizedBox(
-                        width: size.width * 0.14,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: size.height * 0.09,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: size.width * 0.1,
-                      ),
-                      SocialMediaIcon(
-                        iconData: SocialMediaIconData(
-                          icon: FontAwesomeIcons.linkedin,
-                          link: "https://www.linkedin.com/in/sehejjain/",
-                        ),
-                      ),
-                      Spacer(),
-                      SocialMediaIcon(
-                        iconData: SocialMediaIconData(
-                          icon: FontAwesomeIcons.instagram,
-                          link:
-                              "https://www.instagram.com/sehej.on.the.offbeat/",
-                        ),
-                      ),
-                      SizedBox(
-                        width: size.width * 0.1,
+                      Spacer(
+                        flex: 1,
                       ),
                     ],
                   ),
