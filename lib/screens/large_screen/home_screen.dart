@@ -9,7 +9,7 @@ import 'package:portfolio/screens/large_screen/master_page.dart';
 import 'coming_soon.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const String route = '';
+  static const String route = '/';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
