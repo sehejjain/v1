@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/responsive_widget.dart';
 import 'package:portfolio/screens/large_screen/coming_soon.dart';
-import 'package:portfolio/screens/large_screen/home_alt.dart';
-import 'package:portfolio/screens/large_screen/project_screen.dart';
+import 'package:portfolio/screens/large_screen/home_screen.dart';
+import 'package:portfolio/screens/large_screen/master_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,13 +18,24 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/',
+      initialRoute: HomeScreen.route,
       routes: {
         HomeScreen.route: (context) => ResponsiveWidget(
               largeScreen: HomeScreen(),
             ),
         ComingSoon.route: (context) => ComingSoon(),
-        ProjectScreen.route: (context) => ProjectScreen(),
+        "/projects": (context) => MasterPage(
+              index: 1,
+            ),
+        "/about": (context) => MasterPage(
+              index: 4,
+            ),
+        "/publications": (context) => MasterPage(
+              index: 2,
+            ),
+        "/experience": (context) => MasterPage(
+              index: 3,
+            ),
       },
     );
   }
