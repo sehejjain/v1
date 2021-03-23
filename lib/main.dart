@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/responsive_widget.dart';
 import 'package:portfolio/screens/large_screen/coming_soon.dart';
 import 'package:portfolio/screens/large_screen/home_screen.dart';
-import 'package:portfolio/screens/large_screen/master_page.dart';
-import 'package:url_strategy/url_strategy.dart';
+import 'package:flutter/scheduler.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    timeDilation = 5.0;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Sehej Jain",
