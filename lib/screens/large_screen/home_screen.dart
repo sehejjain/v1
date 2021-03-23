@@ -5,13 +5,14 @@ import 'package:portfolio/components/social_media_icon.dart';
 import 'package:portfolio/models/icon_data.dart';
 
 import 'package:portfolio/screens/large_screen/master_page.dart';
-
-import 'coming_soon.dart';
+import 'package:flutter/scheduler.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String route = '';
+
   @override
   Widget build(BuildContext context) {
+    timeDilation = 2;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xff222222),
@@ -33,35 +34,38 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Row(
-                children: [
-                  SocialMediaIcon(
-                    iconData: SocialMediaIconData(
-                      icon: Icons.mail,
-                      link: "mailto:2018225@iiitdmj.ac.in",
+            Hero(
+              tag: "Social",
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Row(
+                  children: [
+                    SocialMediaIcon(
+                      iconData: SocialMediaIconData(
+                        icon: Icons.mail,
+                        link: "mailto:2018225@iiitdmj.ac.in",
+                      ),
                     ),
-                  ),
-                  SocialMediaIcon(
-                    iconData: SocialMediaIconData(
-                      icon: FontAwesomeIcons.linkedin,
-                      link: "https://www.linkedin.com/in/sehejjain/",
+                    SocialMediaIcon(
+                      iconData: SocialMediaIconData(
+                        icon: FontAwesomeIcons.linkedin,
+                        link: "https://www.linkedin.com/in/sehejjain/",
+                      ),
                     ),
-                  ),
-                  SocialMediaIcon(
-                    iconData: SocialMediaIconData(
-                      icon: FontAwesomeIcons.github,
-                      link: "https://github.com/sehejjain",
+                    SocialMediaIcon(
+                      iconData: SocialMediaIconData(
+                        icon: FontAwesomeIcons.github,
+                        link: "https://github.com/sehejjain",
+                      ),
                     ),
-                  ),
-                  SocialMediaIcon(
-                    iconData: SocialMediaIconData(
-                      icon: FontAwesomeIcons.instagram,
-                      link: "https://www.instagram.com/sehej.on.the.offbeat/",
+                    SocialMediaIcon(
+                      iconData: SocialMediaIconData(
+                        icon: FontAwesomeIcons.instagram,
+                        link: "https://www.instagram.com/sehej.on.the.offbeat/",
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Align(
@@ -83,13 +87,17 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(
                       height: size.height * 0.03,
                     ),
-                    Text(
-                      "I am a 20-year-old Computer Science Undergrad from New Delhi."
-                      "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them."
-                      "\nMy aspirations in my life are centred around empowering people, and striving for inclusive and dynamic answers to the world’s problems.",
-                      style: GoogleFonts.montserrat(
-                          fontSize: size.height * 0.022, color: Colors.white54),
-                      textAlign: TextAlign.center,
+                    Hero(
+                      tag: "desc",
+                      child: Text(
+                        "I am a 20-year-old Computer Science Undergrad from New Delhi."
+                        "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them."
+                        "\nMy aspirations in my life are centred around empowering people, and striving for inclusive and dynamic answers to the world’s problems.",
+                        style: GoogleFonts.montserrat(
+                            fontSize: size.height * 0.022,
+                            color: Colors.white54),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),

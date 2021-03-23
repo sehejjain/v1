@@ -29,7 +29,7 @@ Map<String, dynamic> projects = {
       "name": "Ranking Youtube Videos",
       "subtitle":
           "Aim to build a web app that uses a Natural Language Processing Model to rank YouTube videos of different categories using weighted ranking of their comments",
-      "team": "Ayushi Gupta, Sehej Jain, Swati Ramtilak and Sumedh Supe",
+      "team": "Aman Panjwani, Samarth Soni and Sehej Jain",
     },
     {
       "name": "This is Us",

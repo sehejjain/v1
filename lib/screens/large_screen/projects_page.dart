@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/components/project_card.dart';
 import 'package:portfolio/data/projects.dart';
 
@@ -32,7 +31,6 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double ratio = size.width / size.height;
     return Column(
       children: [
         SizedBox(
