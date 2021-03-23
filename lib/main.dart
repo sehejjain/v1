@@ -6,8 +6,6 @@ import 'package:portfolio/screens/large_screen/master_page.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
-  setPathUrlStrategy();
-
   runApp(MyApp());
 }
 
@@ -27,18 +25,6 @@ class MyApp extends StatelessWidget {
               largeScreen: HomeScreen(),
             ),
         ComingSoon.route: (context) => ComingSoon(),
-        "/projects": (context) => MasterPage(
-              index: 1,
-            ),
-        "/about": (context) => MasterPage(
-              index: 4,
-            ),
-        "/publications": (context) => MasterPage(
-              index: 2,
-            ),
-        "/experience": (context) => MasterPage(
-              index: 3,
-            ),
       },
     );
   }
