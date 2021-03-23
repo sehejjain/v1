@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/screens/large_screen/coming_soon.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
+  final Map project;
   final Size size;
-  final String name;
-  final String title;
-  final String subtitle;
-  final String extra;
 
-  const ProjectCard(
-      {Key? key,
-      required this.size,
-      required this.name,
-      required this.title,
-      required this.subtitle,
-      required this.extra})
+  const ProjectCard({Key? key, required this.project, required this.size})
       : super(key: key);
 
   @override
@@ -23,70 +15,105 @@ class ProjectCard extends StatefulWidget {
 }
 
 class _ProjectCardState extends State<ProjectCard> {
-  Text getHeadingText(String heading) {
-    return Text(
-      heading,
-      style: GoogleFonts.montserrat(
-        fontSize: widget.size.height * 0.045,
-        color: Colors.orangeAccent,
-        fontWeight: FontWeight.w400,
-      ),
-      textAlign: TextAlign.center,
-    );
-  }
+  Map stringToPage = {
+    "Sirhaana": ComingSoon(),
+    "Brain Stroke": ComingSoon(),
+  };
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, ComingSoon.route);
+        if (widget.project.containsKey("link")) {
+          launch(widget.project["link"]);
+        } else if (widget.project.containsKey("page")) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => stringToPage[widget.project["name"]],
+            ),
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ComingSoon(),
+            ),
+          );
+        }
       },
-      child: Padding(
-        padding: const EdgeInsets.all(28.0),
-        child: Card(
-          elevation: 0,
-          color: Colors.transparent,
-          child: Column(
-            children: [
-              getHeadingText("Sirhaana"),
-              Text(
-                "Empowering the Urban Poor",
-                style: GoogleFonts.montserrat(
-                  fontSize: widget.size.height * 0.025,
-                  color: Colors.orangeAccent,
-                ),
-                textAlign: TextAlign.center,
+      child: Card(
+        elevation: 0,
+        color: Colors.transparent,
+        child: Column(
+          children: [
+            Text(
+              widget.project["name"],
+              style: GoogleFonts.montserrat(
+                fontSize: widget.size.height * 0.043,
+                color: Colors.orangeAccent,
+                fontWeight: FontWeight.w400,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Bay Area Global Health Innovation Challenge, Top 16 Finalist",
-                  style: GoogleFonts.montserrat(
-                    fontSize: widget.size.height * 0.02,
-                    color: Colors.white54,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Text(
-                "Team Members: Ayushi Gupta, Sumedh Supe and Swati Ramtilak",
-                style: GoogleFonts.montserrat(
-                  fontSize: widget.size.height * 0.02,
-                  color: Colors.white54,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                // "We envision a service that will serve the urban poor, address their issue of handling emergencies and guide them through. We want to bridge the gap between the present-day healthcare systems and the urban poor, who mostly prefer their home remedies or are unaware of the schemes they are eligible for. We want to be a service that can have an impact and help people so that they are not turned away or taken advantage of because of their circumstances. \n"
-                "\"Trust our vision for us to return it back with our service.\"",
-                style: GoogleFonts.montserrat(
-                  fontSize: widget.size.height * 0.018,
-                  color: Colors.white54,
-                ),
-                textAlign: TextAlign.center,
-              )
-            ],
-          ),
+              textAlign: TextAlign.center,
+            ),
+            widget.project.containsKey("title")
+                ? Text(
+                    widget.project["title"],
+                    style: GoogleFonts.montserrat(
+                      fontSize: widget.size.height * 0.025,
+                      color: Colors.orangeAccent,
+                    ),
+                    textAlign: TextAlign.center,
+                  )
+                : Container(),
+            widget.project.containsKey("subtitle")
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      widget.project["subtitle"],
+                      style: GoogleFonts.montserrat(
+                        fontSize: widget.size.height * 0.02,
+                        color: Colors.white54,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                : Container(),
+            widget.project.containsKey("team")
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      widget.project["team"],
+                      style: GoogleFonts.montserrat(
+                        fontSize: widget.size.height * 0.02,
+                        color: Colors.white54,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                : Container(),
+            widget.project.containsKey("quote")
+                ? Text(
+                    // "We envision a service that will serve the urban poor, address their issue of handling emergencies and guide them through. We want to bridge the gap between the present-day healthcare systems and the urban poor, who mostly prefer their home remedies or are unaware of the schemes they are eligible for. We want to be a service that can have an impact and help people so that they are not turned away or taken advantage of because of their circumstances. \n"
+                    widget.project["quote"],
+                    style: GoogleFonts.montserrat(
+                      fontSize: widget.size.height * 0.018,
+                      color: Colors.white54,
+                    ),
+                    textAlign: TextAlign.center,
+                  )
+                : Container(),
+            widget.project.containsKey("subsubtitle")
+                ? Text(
+                    widget.project["subsubtitle"],
+                    style: GoogleFonts.montserrat(
+                      fontStyle: FontStyle.italic,
+                      color: Colors.white54,
+                    ),
+                    textAlign: TextAlign.center,
+                  )
+                : Container(),
+          ],
         ),
       ),
     );

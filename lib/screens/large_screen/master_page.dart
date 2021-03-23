@@ -12,15 +12,22 @@ class MasterPage extends StatefulWidget {
 
 class _MasterPageState extends State<MasterPage> {
   // final arg = ModalRoute.of(context)!.settings.arguments;
-  int _selectedIndex = 1;
+  late int _selectedIndex = 1;
 
-  List<String> tabs = [
-    "Home",
-    "Projects",
-    "Publications",
-    "Experience",
-    "About"
+  @override
+  initState() {
+    super.initState();
+    _selectedIndex = widget.index;
+  }
+
+  List tabs = [
+    // "Home",
+    ["Projects", ProjectsScreen()],
+    ["Publications", Container()],
+    ["Experience", Container()],
+    ["About", Container()],
   ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -30,7 +37,7 @@ class _MasterPageState extends State<MasterPage> {
         backgroundColor: Color(0xff222222),
         elevation: 0,
         title: Text(
-          "projects",
+          tabs[_selectedIndex][0],
           style: GoogleFonts.oswald(
             fontSize: size.height * 0.05,
             color: Colors.orangeAccent,
@@ -67,18 +74,18 @@ class _MasterPageState extends State<MasterPage> {
                       ),
                       labelType: NavigationRailLabelType.all,
                       destinations: [
-                        NavigationRailDestination(
-                          icon: SizedBox.shrink(),
-                          label: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8),
-                            child: RotatedBox(
-                              quarterTurns: -1,
-                              child: Text(
-                                "Home",
-                              ),
-                            ),
-                          ),
-                        ),
+                        // NavigationRailDestination(
+                        //   icon: SizedBox.shrink(),
+                        //   label: Padding(
+                        //     padding: EdgeInsets.symmetric(vertical: 8),
+                        //     child: RotatedBox(
+                        //       quarterTurns: -1,
+                        //       child: Text(
+                        //         "Home",
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         NavigationRailDestination(
                           icon: SizedBox.shrink(),
                           label: Padding(
@@ -135,7 +142,7 @@ class _MasterPageState extends State<MasterPage> {
             }),
             VerticalDivider(thickness: 1, width: 1),
             Expanded(
-              child: ProjectsScreen(),
+              child: tabs[_selectedIndex][1],
             ),
           ],
         ),

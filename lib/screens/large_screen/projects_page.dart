@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/components/project_card.dart';
 import 'package:portfolio/data/projects.dart';
 
@@ -11,25 +12,50 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   getProjects(Size size) {
     List<ProjectCard> cards = [];
     for (var project in projects["projects"]) {
-      cards.add(ProjectCard(
+      cards.add(
+        ProjectCard(
           size: MediaQuery.of(context).size,
-          name: project["name"],
-          title: project["title"],
-          subtitle: project["subtitle"],
-          extra: project["team"]));
+          project: project,
+        ),
+      );
     }
     return cards;
+  }
+
+  getProject(Size size, int index) {
+    return ProjectCard(
+      project: projects["projects"][index],
+      size: MediaQuery.of(context).size,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      child: GridView.count(
-        crossAxisCount: 3,
-        childAspectRatio: size.width / (size.height * 1.5),
-        children: getProjects(size),
-      ),
+    double ratio = size.width / size.height;
+    return Column(
+      children: [
+        SizedBox(
+          height: size.height * 0.1,
+        ),
+        Expanded(
+          child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: size.width > 1000
+                      ? 3
+                      : size.width > 700
+                          ? 2
+                          : 1,
+                  mainAxisSpacing: 0,
+                  mainAxisExtent: size.height / 2.5),
+              itemCount: projects["projects"].length,
+              itemBuilder: (context, int index) {
+                return GridTile(
+                  child: getProject(size, index),
+                );
+              }),
+        ),
+      ],
     );
   }
 }
