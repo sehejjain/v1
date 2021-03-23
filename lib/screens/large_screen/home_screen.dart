@@ -9,7 +9,7 @@ import 'package:portfolio/screens/large_screen/master_page.dart';
 import 'coming_soon.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const String route = '/';
+  static const String route = '';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                       "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them."
                       "\nMy aspirations in my life are centred around empowering people, and striving for inclusive and dynamic answers to the world’s problems.",
                       style: GoogleFonts.montserrat(
-                          fontSize: size.height * 0.025, color: Colors.white54),
+                          fontSize: size.height * 0.022, color: Colors.white54),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -107,12 +107,18 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/about");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => MasterPage(
+                                index: 0,
+                              ),
+                            ),
+                          );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "About",
+                            "Projects",
                             style: GoogleFonts.montserrat(
                               fontSize: size.height * 0.05,
                               color: Colors.orangeAccent,
@@ -125,12 +131,18 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/projects");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => MasterPage(
+                                index: 1,
+                              ),
+                            ),
+                          );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "Projects",
+                            "Publications",
                             style: GoogleFonts.montserrat(
                               fontSize: size.height * 0.05,
                               color: Colors.orangeAccent,
@@ -154,7 +166,13 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/experience");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => MasterPage(
+                                index: 2,
+                              ),
+                            ),
+                          );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -173,12 +191,18 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed("/publications");
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => MasterPage(
+                                index: 3,
+                              ),
+                            ),
+                          );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "Publications",
+                            "About",
                             style: GoogleFonts.montserrat(
                               fontSize: size.height * 0.05,
                               color: Colors.orangeAccent,
