@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                     Hero(
                       tag: "desc",
                       child: Text(
-                        "I am a 20-year-old Computer Science Undergrad from New Delhi."
+                        "I am a 21-year-old Computer Science Undergrad from New Delhi."
                         "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them."
                         "\nMy aspirations in my life are centred around empowering people, and striving for inclusive and dynamic answers to the world’s problems.",
                         style: GoogleFonts.montserrat(
