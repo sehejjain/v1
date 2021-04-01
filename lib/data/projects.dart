@@ -21,8 +21,8 @@ Map<String, dynamic> projects = {
     {
       "name": "Genome Sequencing",
       "title": "Using Nature Inspired Algorithms",
-      "subtitle": "Done under Dr. Kusum Kumari Bharti",
-      "team": "Ayushi Gupta, Sehej Jain, Swati Ramtilak and Sumedh Supe",
+      "subtitle": "Supervisor: Dr. Kusum Kumari Bharti",
+      // "team": "Ayushi Gupta, Sehej Jain, Swati Ramtilak and Sumedh Supe",
       "subsubtitle": "Paper under review"
     },
     {
