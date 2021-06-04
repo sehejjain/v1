@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/components/social_media_icon.dart';
 import 'package:portfolio/models/icon_data.dart';
 
-import 'package:portfolio/screens/large_screen/master_page.dart';
 import 'package:flutter/scheduler.dart';
 
 class HomeScreen extends StatelessWidget {
