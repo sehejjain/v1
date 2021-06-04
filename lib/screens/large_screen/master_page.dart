@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/components/social_media_icon.dart';
-import 'package:portfolio/models/icon_data.dart';
-import 'package:portfolio/screens/large_screen/about.dart';
+import 'package:portfolio/responsive_widget.dart';
+import 'package:portfolio/screens/large_screen/about.dart' as large_about;
+import 'package:portfolio/screens/large_screen/experience.dart' as large;
 import 'package:portfolio/screens/large_screen/projects_page.dart';
+import 'package:portfolio/screens/large_screen/publications_page.dart';
+import 'package:portfolio/screens/small_screen/about.dart' as small_about;
+import 'package:portfolio/screens/small_screen/experience.dart' as small;
 
 class MasterPage extends StatefulWidget {
   final int index;
@@ -27,9 +29,20 @@ class _MasterPageState extends State<MasterPage> {
   List tabs = [
     // "Home",
     ["Projects", ProjectsScreen()],
-    ["Publications", Container()],
-    ["Experience", Container()],
-    ["About", AboutScreen()],
+    ["Publications", PublicationsScreen()],
+    [
+      "Experience",
+      ResponsiveWidget(
+          largeScreen: large.ExperiencePage(),
+          smallScreen: small.ExperiencePage())
+    ],
+    [
+      "About",
+      ResponsiveWidget(
+        largeScreen: large_about.AboutScreen(),
+        smallScreen: small_about.AboutScreen(),
+      )
+    ],
   ];
 
   @override
@@ -51,40 +64,44 @@ class _MasterPageState extends State<MasterPage> {
       body: SafeArea(
         child: Stack(
           children: [
-            Hero(
-              tag: "a",
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Row(
-                  children: [
-                    SocialMediaIcon(
-                      iconData: SocialMediaIconData(
-                        icon: Icons.mail,
-                        link: "mailto:2018225@iiitdmj.ac.in",
-                      ),
-                    ),
-                    SocialMediaIcon(
-                      iconData: SocialMediaIconData(
-                        icon: FontAwesomeIcons.linkedin,
-                        link: "https://www.linkedin.com/in/sehejjain/",
-                      ),
-                    ),
-                    SocialMediaIcon(
-                      iconData: SocialMediaIconData(
-                        icon: FontAwesomeIcons.github,
-                        link: "https://github.com/sehejjain",
-                      ),
-                    ),
-                    SocialMediaIcon(
-                      iconData: SocialMediaIconData(
-                        icon: FontAwesomeIcons.instagram,
-                        link: "https://www.instagram.com/sehej.on.the.offbeat/",
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // Align(
+            //   alignment: Alignment.bottomRight,
+            //   child: Container(
+            //     width: size.width,
+            //     color: Colors.black.withOpacity(1),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.start,
+            //       children: [
+            //         SocialMediaIcon(
+            //           iconData: SocialMediaIconData(
+            //             icon: Icons.mail,
+            //             link: "mailto:2018225@iiitdmj.ac.in",
+            //           ),
+            //         ),
+            //         SocialMediaIcon(
+            //           iconData: SocialMediaIconData(
+            //             icon: FontAwesomeIcons.linkedin,
+            //             link: "https://www.linkedin.com/in/sehejjain/",
+            //           ),
+            //         ),
+            //         SocialMediaIcon(
+            //           iconData: SocialMediaIconData(
+            //             icon: FontAwesomeIcons.github,
+            //             link: "https://github.com/sehejjain",
+            //           ),
+            //         ),
+            //         SocialMediaIcon(
+            //           iconData: SocialMediaIconData(
+            //             icon: FontAwesomeIcons.instagram,
+            //             link: "https://www.instagram.com/sehej.on.the.offbeat/",
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+
+            //   ),
+            // ),
+
             Row(
               children: [
                 LayoutBuilder(builder: (context, constraint) {
