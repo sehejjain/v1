@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/components/social_media_icon.dart';
 import 'package:portfolio/models/icon_data.dart';
 
-import 'package:portfolio/screens/large_screen/master_page.dart';
 import 'package:flutter/scheduler.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -115,13 +114,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => MasterPage(
-                                index: 0,
-                              ),
-                            ),
-                          );
+                          Navigator.pushNamed(context, "/projects");
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -139,13 +132,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => MasterPage(
-                                index: 1,
-                              ),
-                            ),
-                          );
+                          Navigator.pushNamed(context, "/publications");
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -174,13 +161,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => MasterPage(
-                                index: 2,
-                              ),
-                            ),
-                          );
+                          Navigator.pushNamed(context, "/experience");
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -199,13 +180,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => MasterPage(
-                                index: 3,
-                              ),
-                            ),
-                          );
+                          Navigator.pushNamed(context, "/about");
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

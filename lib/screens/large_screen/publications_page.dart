@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/project_card.dart';
-import 'package:portfolio/data/projects.dart';
+import 'package:portfolio/components/publication_card.dart';
+import 'package:portfolio/data/publications.dart';
 
-class ProjectsScreen extends StatefulWidget {
+class PublicationsScreen extends StatefulWidget {
   @override
-  _ProjectsScreenState createState() => _ProjectsScreenState();
+  _PublicationsScreenState createState() => _PublicationsScreenState();
 }
 
-class _ProjectsScreenState extends State<ProjectsScreen> {
-  getProject(Size size, int index) {
-    return ProjectCard(
-      project: projects["projects"][index],
+class _PublicationsScreenState extends State<PublicationsScreen> {
+  getPublication(Size size, int index) {
+    return PublicationCard(
+      project: publications["publications"][index],
       size: MediaQuery.of(context).size,
     );
   }
@@ -33,10 +33,10 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                           : 1,
                   mainAxisSpacing: 0,
                   mainAxisExtent: size.height / 2.5),
-              itemCount: projects["projects"].length,
+              itemCount: publications["publications"].length,
               itemBuilder: (context, int index) {
                 return GridTile(
-                  child: getProject(size, index),
+                  child: getPublication(size, index),
                 );
               }),
         ),
