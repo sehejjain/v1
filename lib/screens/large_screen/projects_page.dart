@@ -8,19 +8,6 @@ class ProjectsScreen extends StatefulWidget {
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
-  getProjects(Size size) {
-    List<ProjectCard> cards = [];
-    for (var project in projects["projects"]) {
-      cards.add(
-        ProjectCard(
-          size: MediaQuery.of(context).size,
-          project: project,
-        ),
-      );
-    }
-    return cards;
-  }
-
   getProject(Size size, int index) {
     return ProjectCard(
       project: projects["projects"][index],
