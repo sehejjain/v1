@@ -34,7 +34,10 @@ class _AboutScreenState extends State<AboutScreen> {
           alignment: Alignment.center,
           child: Column(
             children: [
-              Text("Hi"),
+              // Text("Hi"),
+              SizedBox(
+                height: size.height * 0.04,
+              ),
               Hero(
                 tag: "desc",
                 child: Container(
@@ -46,7 +49,9 @@ class _AboutScreenState extends State<AboutScreen> {
                       "\nThe foci of my projects vary from building software solutions to developing ideas and doing research, but what I prize myself for is the ability to learn new things and then building upon them."
                       "\nMy aspirations in my life are centred around empowering people, and striving for inclusive and dynamic answers to the world’s problems.",
                       style: GoogleFonts.montserrat(
-                          fontSize: size.height * 0.027, color: Colors.white54),
+                        fontSize: size.height * 0.027,
+                        color: Colors.white54,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -62,12 +67,87 @@ class _AboutScreenState extends State<AboutScreen> {
                   child: Column(
                     children: [
                       Text(
-                        "I will be graduating from IIIT Jabalpur in May 2022, with a B.Tech in Computer Science and Engineering. Here are a few technologies that I have been working with recently:",
+                        "I will be graduating from IIIT Jabalpur in May 2022, with a B.Tech in Computer Science and Engineering. \nHere are a few skills that I consider myself proficient in:",
                         style: GoogleFonts.montserrat(
                             fontSize: size.height * 0.027,
                             color: Colors.white54),
                         textAlign: TextAlign.center,
                       ),
+                      SizedBox(
+                        height: size.height * 0.04,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  "\u2022 Soft Computing",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "\u2022 Artificial Intelligence",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "\u2022 Machine Learning",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "\u2022 Research",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  "\u2022 Python Programming",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "\u2022 Flutter Development",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "\u2022 Data Science Techniques",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "\u2022 Data Structures and Algorithms",
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: size.height * 0.027,
+                                      color: Colors.white54),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
